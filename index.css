@@ -1,0 +1,56 @@
+html *{margin:0;padding:0;-webkit-font-smoothing: antialiased;font-family:'微软雅黑','Microsoft YaHei',Verdana,Helvetica,Arial;font-size: 14px;color: #2d2d2d;}
+    body{background: #f2f1f1;}
+    ul,ul li{list-style:none;}
+    a:link {color: #2d2d2d;text-decoration: none;}
+    a:visited {color: #2d2d2d;text-decoration: none;}
+    a:hover {color: #09C;text-decoration: none;}
+    a:active {color: #09C;text-decoration: none;}
+    #input-box {
+        position: fixed;
+        left:0;
+        top:0;
+    }
+    .time-axis{box-sizing:border-box;width: 800px;overflow: hidden;margin: 0 auto;position: relative;}
+    .time-axis-border{width: 1px;height: 100%;position: absolute;top: 0;left: 50%;margin-left: -0.5px;background-color: #9e9b9b;}
+    .time-axis-con{box-sizing: border-box;width: 100%;overflow: hidden;margin-bottom: 15px;}
+    .time-axis-date{font-size: 12px;color: #aaa;margin-bottom: 5px;}
+    .time-axis-detail{box-sizing: border-box;width: 50%;padding:0 30px;
+        position: relative;
+        top:-24px;
+    }
+    .time-axis-detail p{word-break: break-all;}
+    .time-axis-con:nth-of-type(odd) .time-axis-detail{text-align: left;float: right;}
+    .time-axis-con:nth-of-type(even) .time-axis-detail{text-align: right;float: left;}
+    .time-axis-dot span{width: 10px;height: 10px;border-radius:50%;margin: 10px auto;
+        position: relative;
+        background-color:purple;
+        z-index:3;
+        display: block;
+    }
+
+    .bottoncss{
+        width: 100px;
+        height: 35px;
+        border: 1px solid #999966;
+        border-radius: 15px;
+        outline: none;
+        background: #00FF66;
+        cursor: pointer;
+        position: relative;
+        top: -25px;
+    }
+    .textcss{
+        width: 200px;
+        text-align: center;
+        /*vertical-align: middle;*/
+        /*height: 100px;*/
+        border: 1px solid #999966;
+        border-radius: 15px;
+        outline: none;
+        font-size: 24px;
+        margin-left: 200px;
+        margin-top: 20px;
+    }
+    .bottoncss:hover{
+        background: #00FFCC;
+    }

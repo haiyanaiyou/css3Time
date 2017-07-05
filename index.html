@@ -6,10 +6,68 @@
 		<link rel="stylesheet" type="text/css" href="index.css"/>
 	</head>
 	<body>
-		<h1>CSS3时间轴</h1>
+		<h1 style="text-align: center; margin: 60px auto;">CSS3时间轴</h1>
+		<div class="time-axis" id="jiedian">
+			<div class="time-axis-con">
+				<div class="time-axis-dot"><span></span></div>
+				<div class="time-axis-detail">
+					<div class="time-axis-date">2017-7-1</div>
+					<div><a href="#">1日</a></div>
+				</div>
+			</div>
+			<div class="time-axis-con">
+				<div class="time-axis-dot"><span></span></div>
+				<div class="time-axis-detail">
+					<div class="time-axis-date">2017-6-30</div>
+					<div><a href="#">30日</a></div>
+				</div>
+			</div>
+			<div class="time-axis-con">
+				<div class="time-axis-dot"><span></span></div>
+				<div class="time-axis-detail">
+					<div class="time-axis-date">2017-6-29</div>
+					<div><a href="#">29日</a></div>
+				</div>
+			</div>
+			<div class="time-axis-border"></div>
+		</div>
+		<div id="input-box">
+			<textarea name="" class="textcss" placeholder="请输入文字"></textarea>
+			<input type="button" class="bottoncss" id="add" value="添加" onclick="onbutton();"/>
+		</div>
 	</body>
 	<script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript">
-		
+		Date.prototype.Format =function (fmt) {
+			const o = {
+				//月份 日 小时  分  秒 季度  毫秒
+				"M+": this.getMonth()+1,
+				"d+": this.getDate(),
+				"H+": this.getHours(),
+				"m+": this.getMinutes(),
+				"s+": this.getSeconds(),
+				"q+": Math.floor((this.getMonth()+3)/3),
+				"S":  this.getMilliseconds()
+			};
+			if (/(y+)/.test(fmt)) 
+			fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+			for(let k in o){
+				if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+				return fmt;
+			}
+		};
+		var Jiedian = document.getElementById("jiedian");
+	    let time = new Date().Format("yyyy-MM-dd HH:mm:ss");
+	    function onbutton(){
+	        var text = $(".textcss").val();
+	        if(text != ""){
+	            var conval = text ;
+	            var thehtml = "<div class='time-axis-con'><div class='time-axis-dot'><span></span></div><div class='time-axis-detail'><div class='time-axis-date'>"+time+"</div><div><p>"+ conval +"</p></div></div></div>"
+	            $("#jiedian").prepend(thehtml);
+	            $(".textcss").val('');
+	        }else{
+	            return alert("请输入文字");
+	        }
+	    }
 	</script>
 </html>
